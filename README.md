@@ -7,7 +7,7 @@ User Story: As a user, I want to be able to easily search for recipes with keywo
 ## Image of sketch of application
 
 ## Image of our user flow diagram
-![Screenshot 2023-03-20 at 11 39 57 AM](https://user-images.githubusercontent.com/120619974/229021471-6860e34f-f3de-4478-b549-a010ea056e76.png)
+![Screenshot 2023-03-30 at 9 13 08 PM](https://user-images.githubusercontent.com/120619974/229021611-53f34825-5d15-4cf1-9ef4-dfdfd12cd5ff.png)
 
 
 ## Collaborator
