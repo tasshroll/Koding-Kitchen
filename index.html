@@ -1,1 +1,41 @@
 <!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link href="https://fonts.googleapis.com/css?family=IBM+Plex+Sans:400,400i,700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css">
+  <link rel="stylesheet" href="./main/assets/css/style.css" />
+  <title>Koding Kitchen</title>
+</head>
+
+<body class="flex-column min-100-vh">
+  <header class="hero">
+    <h1 class="app-title">
+      <i class="fab fa-github"></i> Koding Kitchen
+    </h1>
+    <p>Recipe Finder
+    </p>
+  </header>
+
+
+  <main class="flex-row justify-space-between">
+    <div class="col-12 col-md-4">
+      <div class="card">
+        <h3 class="card-header">Hungry? Search for inspiration by entering a food</h3>
+        <form id="user-form" class="card-body">
+          <label class="form-label" f></label>
+          <input id="food-type" type="text" autofocus="true" class="form-input" />
+          <button type="submit" class="btn">submit</button>
+        </form>
+      </div>
+      <div id="recipe"></div>
+    </div>
+  </main>
+
+  <script src="./main/assets/js/script.js"></script>
+</body>
+
+</html>
