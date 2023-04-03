@@ -5,7 +5,7 @@ recipes based on food cravings
 User Story: As a user, I want to be able to easily search for recipes with keywords.   
             As a user I should be able to search for recipes with ingredients I choose.
 ## Image of sketch of application
-
+![Koding-kitchen](./images/koding-kitchen-workflow%202.png)
 ## Image of our user flow diagram
 
 
