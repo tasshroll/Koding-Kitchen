@@ -35,7 +35,7 @@ function getParams() {
 };
 
 
-var getRecipeApi = function(id, url) {
+var getRecipeApi = function (id, url) {
     // GET https://api.spoonacular.com/recipes/716429/information?includeNutrition=false
     var apiUrl = 'https://api.spoonacular.com/recipes/' + id + '/information?includeNutrition=false' + '&apiKey=' + apiKey;
 
@@ -105,28 +105,31 @@ function searchApi(searchEl) {
                     }
 
                     console.log("Recipe Array is :", recipeArr);
-
+debugger;
                     // Print the recipes name to the display
                     for (var i = 0; i < recipeArr.length; i++) {
-                        title = recipeArr[i].title;
-                        var recipeHtml = '<div class="recipe">' + title + '</div>';
-                        // List names of recipes 
-                        recipeOutput.innerHTML += recipeHtml;
+                         title = recipeArr[i].title;
+                     var recipeHtml = '<div class="recipe">' + title + '</div>';
+                     var image = recipeArr[i].img;
+                     recipeHtml += 
+                    '<div class="recipe">'
+                     '<h2>' + title + '</h2>'
+                     '<img src="' + image + '" alt="' + title + '">'
+                    //  '<p>Ingredients: ' + ingredientsList + '</p>'
+                    '</div>'
+                    
                     }
-                    // Make a button here SHOW MORE
                 });
-            } else {
-                alert('Error: ' + response.statusText);
-            }
-        })
-        .catch(function (error) {
-            alert('Unable to connect to Spoonacular');
+            };
         });
-}; // END searchApi
+    // List names of recipes 
+    recipeOutput.innerHTML = recipeHtml;
+}
+// Make a button here SHOW MORE
+
 
 
 getParams();
-
 
 
 

@@ -1,4 +1,5 @@
 var formSearchEl = document.getElementById('user-form');
+var ingredientSearchEl = document.getElementById('ingredient-form');
 
 var formSubmitHandler = function (event) {
     event.preventDefault();
@@ -17,3 +18,7 @@ var formSubmitHandler = function (event) {
 
 // Get user input search
 formSearchEl.addEventListener('submit', formSubmitHandler);
+
+
+  
+
