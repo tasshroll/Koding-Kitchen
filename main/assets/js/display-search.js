@@ -1,6 +1,10 @@
 // This file runs when the user lands on the search-results.html 
 // page after submitting the form in the script.js file.
-
+// Get references to the gif containers and images
+const gifContainer1 = document.getElementById('gif-container-1');
+const gifContainer2 = document.getElementById('gif-container-2');
+const gif1 = document.getElementById('gif1');
+const gif2 = document.getElementById('gif2');
 
 
 // api KEYS for Spoonacular
@@ -13,7 +17,65 @@ var apiKey = "45c6a7194e1245fe9dafafb7ccb5c20f" // BreeAnn
 
 // api KEYS for Giphy, limit?
 var giphyKey = "IajHaZagRh0q9o7Rd7K7kXBo8gcIFogM"; // BreeAnn
-var giphyKey = "KnVF7VtjV4lwzxMznTgH2xA4rbz0PnBS" // Bill
+//var giphyKey = "KnVF7VtjV4lwzxMznTgH2xA4rbz0PnBS" // Bill
+
+
+
+//Giphy code
+// Function to generate a random number within a range
+function getRandomNumber(min, max) {
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+  }
+  
+  // Function to set properties for gif element
+  function setGifProperties(gifElement, gifUrl, top, left) {
+    gifElement.src = gifUrl;
+    gifElement.style.top = top + 'px';
+    gifElement.style.left = left + 'px';
+    gifElement.style.width = '1inch';
+    gifElement.style.height = '1inch';
+  }
+  
+  // Function to display and hide gifs
+  function displayGifs() {
+    // Get random top and left values for gifs
+    const gif1Top = getRandomNumber(0, window.innerHeight - 100);
+    const gif1Left = getRandomNumber(0, Math.floor(window.innerWidth * 0.15) - 100);
+    const gif2Top = getRandomNumber(0, window.innerHeight - 100);
+    const gif2Left = getRandomNumber(Math.floor(window.innerWidth * 0.85), window.innerWidth - 100);
+    
+    // Fetch data from Giphy API
+    fetch('https://api.giphy.com/v1/stickers/search?api_key=' + giphyKey + '&limit=50&q=GordonRamsey')
+      .then(response => response.json())
+      .then(data => {
+        // Get two random gif URLs
+        const gif1Url = data.data[getRandomNumber(0, data.data.length - 1)].images.original.url;
+        const gif2Url = data.data[getRandomNumber(0, data.data.length - 1)].images.original.url;
+    
+        // Set properties for gif1 and gif2
+        setGifProperties(gif1, gif1Url, gif1Top, gif1Left);
+        setGifProperties(gif2, gif2Url, gif2Top, gif2Left);
+    
+        // Show gifs
+        gifContainer1.style.display = 'block';
+        gifContainer2.style.display = 'block';
+    
+        // Hide gifs after 10 seconds
+        setTimeout(function() {
+          gifContainer1.style.display = 'none';
+          gifContainer2.style.display = 'none';
+        }, 10000);
+      })
+      .catch(error => console.error(error));
+    
+    // Call displayGifs function again after 30 seconds
+    setTimeout(displayGifs, 30000);
+  }
+  
+  // Call displayGifs function to start displaying gifs
+  displayGifs();
+  //Giphy code end
+
 
 // array to hold recipes
 recipeArr = [];
