@@ -1,5 +1,6 @@
 var formSearchEl = document.getElementById('user-form');
 
+
 var formSubmitHandler = function (event) {
     event.preventDefault();
 
@@ -10,10 +11,9 @@ var formSubmitHandler = function (event) {
         console.error("You need to enter a food input value");
         return;
     }
-    var queryString ='./search-results.html?q=' + searchEl;
-// redirects user to the URL specified in the queryString variable.
+    var queryString = './search-results.html?q=' + searchEl;
+    // redirects user to the URL specified in the queryString variable.
     location.assign(queryString);
 };
 
-// Get user input search
 formSearchEl.addEventListener('submit', formSubmitHandler);
