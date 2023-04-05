@@ -54,7 +54,7 @@ function printRecipeResults() {
         // <a class = "card" href = {url}>TITLE,</a>
         // <img src="file.jpg">
         recipeOutput.innerHTML += recipeHtml;
-    }
+    }pu
 };
 
 var offset=0;
