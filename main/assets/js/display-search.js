@@ -120,6 +120,7 @@ async function searchApi(searchEl) {
                 recipeArr.push(recipeObj);
             }
 
+
             console.log("Recipe Array is :", recipeArr);
 
             printRecipeResults();
