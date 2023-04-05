@@ -3,7 +3,7 @@
     --primary: #ccdad1;
     --secondary: #9caea9;
     --tertiary: #788585;
-    --light-blue: #4f74ed;
+    --light-blue: #566182;
     --dark-blue: #040347;
     --border-radius: 0.3rem;
   }
@@ -34,6 +34,23 @@
     line-height: 1.25;
   }
   
+ 
+    #giphy-left {
+        position: fixed;
+        top: 0;
+        left: 0;
+        margin-top: 10px;
+        margin-left: 10px;
+    }
+
+    #giphy-right {
+      position: fixed;
+      top: 0;
+      right: 0;
+      margin-top: 10px;
+      margin-right: 10px;
+  }
+
   .hero {
       padding: 3% 4%;
       background-color: var(--dark-blue);

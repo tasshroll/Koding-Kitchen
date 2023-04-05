@@ -11,15 +11,27 @@
     <title>Results | Spoonacular Search</title>
 </head>
 
-<body class="flex-column min-100-vh">
+<body>
+    <div id="giphy-left">
+    </div>
 
-    <main class="flex-row justify-space-between">
+    <div id="giphy-right">
+    </div>
+
+    <div class="flex-column align-center min-100-vh">
+        <main class="flex-row justify-space-between">
+            <div class="col-12 col-md-4">
+                <div class="flex-column align-center" id="recipes">
+                    <!-- <h4 class="app-title"> Recipes Found </h4> -->
+                    <!-- <a class=""card" href="{ } > TITLE </a>-->
+                    <!-- // <img src=" "> -->
+                </div>
+        </main>
+
         <div class="col-12 col-md-4">
-            <div class="flex-column align-center" id="recipes">
-                <!-- <a class=""card" href="{ } > TITLE </a>-->
-                <!-- // <img src=" "> -->
+            <div>
+                <button class="btn" id="show-more">Show More</button>
             </div>
-    </main>
-
-    <script src="./main/assets/js/display-search.js"></script>
+        </div>
+        <script src="./main/assets/js/display-search.js"></script>
 </body>
