@@ -6,8 +6,8 @@
 // api KEYS for Spoonacular
 // If you get error 402, rotating to a new key
 // Limit is 150 calls per day
-var apiKey = "0d5211b3d5ad40da820938ae55017af1"; // Tifni
-//var apiKey = "45c6a7194e1245fe9dafafb7ccb5c20f" // BreeAnn
+//var apiKey = "0d5211b3d5ad40da820938ae55017af1"; // Tifni
+var apiKey = "45c6a7194e1245fe9dafafb7ccb5c20f" // BreeAnn
 //var apiKey = "e8f4fbaee191412ebf5f8768cfb7e9fa" // Bill
 //var apiKey = "67c16e203ad04f6295ec9d77abb5cb68" // David
 
@@ -115,8 +115,11 @@ async function searchApi(searchEl) {
                 recipeObj.title = recipeTitle;
                 recipeObj.img = recipeImg;
                 recipeObj.id = recipeId;
-                recipeObj.url = await getRecipeApi(recipeId, recipeUrl);
+                //recipeObj.url = await getRecipeApi(recipeId, recipeUrl);
                 //debugger;
+                recipeObj.url = `https://spoonacular.com/${recipeTitle
+                    .toLowerCase()
+                    .replace(" ", "-")}-${recipeId}`;
                 recipeArr.push(recipeObj);
             }
 
