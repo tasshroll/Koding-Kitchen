@@ -12,13 +12,18 @@
 }
 
 body {
-  background-color: var(--primary);
+  background-color: rgb(255, 255, 255, 0.9);
+  background-image: url("/images/mealprep4.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  /* background-color: var(--primary);
   margin: 0;
   padding: 0;
   font-family: 'IBM Plex Sans', sans-serif;
   color: var(--dark-blue);
   line-height: 1.5;
-  font-size: 16px;
+  font-size: 16px; */
 }
 
 h1,
@@ -35,27 +40,30 @@ h6 {
 
 .hero {
   padding: 3% 4%;
-  background-color: var(--dark-blue);
-  background-image: linear-gradient(to right, var(--light-blue), var(--dark-blue));
+  height: px;
+  /* background-color: var(--dark-blue); */
+  /* background-image: linear-gradient(to right, var(--light-blue), var(--dark-blue)); */
 }
 
 .app-title {
-  font-size: 3rem;
+  font-size: 7.5rem;
   color: white;
-  padding: 3% 20% 0 0;
-  text-align: right;
+  /* padding: 3% 20% 0 0; */
+  text-align: center;
   /* border-radius: var(--border-radius); */
 }
 
 /* CARDS */
 .card {
   margin: 20px 0px 20px 0px;
-  border: 3px solid var(--dark-blue);
-  border-radius: var(--border-radius);
+  /* border: 3px solid var(--dark-blue);
+  border-radius: var(--border-radius); */
 }
 
 .card-header {
-  color: var(--dark-blue);
+  color: aliceblue;
+  width: ;
+  /* color: var(--dark-blue); */
   /* background-color: var(--dark); */
   padding: 2.5%;
   /* border-radius: calc(0.18rem - 1px) calc(0.18rem - 1px) 0 0; */
@@ -98,7 +106,8 @@ h6 {
   color: var(--primary);
   border: none;
   outline: none;
-  background-color: var(--light-blue);
+  /* background-color: var(--light-blue); */
+  background-color: #1ed10e96;
   box-shadow: 3px 3px var(--dark);
   transform: translate(-1px, -1px);
 }
@@ -130,8 +139,11 @@ h6 {
 }
 
 .justify-space-between {
-  justify-content: space-between;
+  /* justify-content: space-between; */
+      justify-content: center;
+      
 }
+
 
 .justify-space-around {
   justify-content: space-around;
