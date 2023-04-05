@@ -140,24 +140,6 @@ h6 {
 
 .justify-space-between {
   /* justify-content: space-between; */
-      justify-content: center;
-      
-}
-
-
-.justify-space-around {
-  justify-content: space-around;
-}
-
-.justify-flex-start {
-  justify-content: flex-start;
-}
-
-.justify-flex-end {
-  justify-content: flex-end;
-}
-
-.justify-center {
   justify-content: center;
 }
 
@@ -427,4 +409,42 @@ h6 {
   .col-xl-12 {
     flex: 0 0 100%;
   }
+
+  /* Giphy code*/
+  .gif-container {
+    position: absolute;
+    width: 2.5in;
+    height: 2.5in;
+    overflow: hidden;
+  }
+
+  .gif-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  #gif-container-1 {
+    bottom: 150px;
+    left: 0;
+    height: 350px;
+  }
+
+  #gif-container-2 {
+    bottom: 150px;
+    right: 0;
+    height: 350px;
+  }
+
+  #gif-container-1 .gif-image {
+    top: calc(10% + calc(90% * var(--random-y-1)));
+    left: calc(75% + calc(15% * var(--random-x-1)));
+  }
+
+  #gif-container-2 .gif-image {
+    top: calc(10% + calc(90% * var(--random-y-2)));
+    left: calc(75% + calc(15% * var(--random-x-2)));
+  }
+
+  /*Giphy code end*/
 }
