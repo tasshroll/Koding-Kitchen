@@ -9,11 +9,6 @@ var getRecipe = function (searchEl) {
 
     var apiKey = "45c6a7194e1245fe9dafafb7ccb5c20f" //BreeAnn
     var giphyKey = "IajHaZagRh0q9o7Rd7K7kXBo8gcIFogM"; // BreeAnn
-
-
-
-
-
     //GET https://api.spoonacular.com/recipes/complexSearch?query=pasta&maxFat=25&number=2
     //GET https://api.spoonacular.com/recipes/complexSearch
     console.log("Searching with :", searchEl);
