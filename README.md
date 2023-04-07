@@ -1,4 +1,4 @@
-# Project Title Koding-Kitchen
+# Koding-Kitchen
 
 ## Description
 
