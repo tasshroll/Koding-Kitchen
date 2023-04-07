@@ -420,8 +420,8 @@ a {
   /* Giphy code*/
   .gif-container {
     position: absolute;
-    width: 2.5in;
-    height: 2.5in;
+    width: 4in;
+    height: 4in;
     overflow: hidden;
   }
 
@@ -434,13 +434,13 @@ a {
   #gif-container-1 {
     bottom: 150px;
     left: 0;
-    height: 350px;
+    height: 500px;
   }
 
   #gif-container-2 {
     bottom: 150px;
     right: 0;
-    height: 350px;
+    height: 500px;
   }
 
   #gif-container-1 .gif-image {
