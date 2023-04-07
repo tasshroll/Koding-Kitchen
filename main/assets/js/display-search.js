@@ -12,12 +12,12 @@ const gif2 = document.getElementById('gif2');
 // Limit is 150 calls per day
 //var apiKey = "0d5211b3d5ad40da820938ae55017af1"; // Tifni
 //var apiKey = "45c6a7194e1245fe9dafafb7ccb5c20f" // BreeAnn
-var apiKey = "e8f4fbaee191412ebf5f8768cfb7e9fa" // Bill
-//var apiKey = "67c16e203ad04f6295ec9d77abb5cb68" // David
+//var apiKey = "e8f4fbaee191412ebf5f8768cfb7e9fa" // Bill
+var apiKey = "67c16e203ad04f6295ec9d77abb5cb68" // David
 
 // api KEYS for Giphy, limit?
-var giphyKey = "IajHaZagRh0q9o7Rd7K7kXBo8gcIFogM"; // BreeAnn
-//var giphyKey = "KnVF7VtjV4lwzxMznTgH2xA4rbz0PnBS" // Bill
+//var giphyKey = "IajHaZagRh0q9o7Rd7K7kXBo8gcIFogM"; // BreeAnn
+var giphyKey = "KnVF7VtjV4lwzxMznTgH2xA4rbz0PnBS" // Bill
 
 
 
@@ -118,7 +118,7 @@ function printRecipeResults() {
         // <a class = "card" href = {url}>TITLE,</a>
         // <img src="file.jpg">
         recipeOutput.innerHTML += recipeHtml;
-    }pu
+    }
 };
 
 var offset=0;
@@ -168,6 +168,7 @@ var apiUrl = 'https://api.spoonacular.com/recipes/complexSearch' + '?apiKey='
             alert('Error: ' + response.statusText);
         }
     } catch (error) {
+        debugger;
         alert('Unable to connect to Spoonacular');
     }
 }; // END searchApi

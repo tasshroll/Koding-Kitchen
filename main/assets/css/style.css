@@ -34,9 +34,17 @@ h5,
 h6 {
   font-weight: 700;
   margin: 0;
-  color: var(--dark-blue);
+  color: var(--primary);
   line-height: 1.25;
 }
+
+a {
+  font-size: 35px;
+  color: white;
+  text-align: center;
+}
+
+
 
 .hero {
   padding: 3% 4%;
