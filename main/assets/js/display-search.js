@@ -105,7 +105,7 @@ function printRecipeResults() {
     var recipeOutput = document.querySelector('#recipes');
     // Create a header element
     var header = document.createElement("h2");
-    header.textContent = "click on the link for more details";
+    header.textContent = "click on the link for more recipe details";
     recipeOutput.appendChild(header);
 
     for (var i = 0; i < recipeArr.length; i++) {
