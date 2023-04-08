@@ -105,13 +105,13 @@ function printRecipeResults() {
     var recipeOutput = document.querySelector('#recipes');
     // Create a header element
     var header = document.createElement("h2");
-    header.textContent = "Query Results - click on text for recipe";
+    header.textContent = "click on the link for more recipe details";
     header.setAttribute ("class", "col-12")
     recipeOutput.appendChild(header);
 
     for (var i = 0; i < recipeArr.length; i++) {
-        // Create this HTML for each recipe title and image. Note: clicking
-        // on title OR image will link to href for actual recipe
+        // HTML for each recipe title and image. A Click
+        // on title OR image will redirect to href for recipe
         //
         // <div class="col-lg-6 col-md-12 col-sm-12 recipe-div"
         //    <a href = "url"><p>TITLE</p>
@@ -197,7 +197,6 @@ generateBtn.addEventListener("click", getMoreRecipes);
 
 // Parse query params input by user from homepage
 getParams();
-
 
 
 
