@@ -79,7 +79,7 @@ displayGifs();
 
 // SHOW MORE recipes button
 var generateBtn = document.getElementById("show-more");
-
+var newSearchBtn = document.getElementById("")
 // array to hold recipes
 recipeArr = [];
 
@@ -121,7 +121,7 @@ function printRecipeResults() {
         var title = recipeArr[i].title;
         var img = recipeArr[i].img;
         var url = recipeArr[i].url;
-        var recipeHtml = `<div class="col-lg-6 col-md-12 col-sm-12 recipe-div"><a href="${url}"><p>${title}</p><img src="${img}"></a></div>`;
+        var recipeHtml = `<div class="col-lg-6 col-md-12 col-sm-12 recipe-div"><a href="${url}"><p class="margin-bottom-30">${title}</p><img src="${img}"></a></div>`;
         recipeOutput.innerHTML += recipeHtml;
     }
 };
@@ -188,12 +188,11 @@ function getMoreRecipes() {
     offset += 10;
     console.log("Offset is :", offset);
     recipeArr.length = 0;
-    searchApi(query); // How does spoonacular give us the next batch of recipes? Same ones keep coming up
+    searchApi(query); 
 }
 
 // Listen for click if user wants more recipes
 generateBtn.addEventListener("click", getMoreRecipes);
-
 
 // Parse query params input by user from homepage
 getParams();

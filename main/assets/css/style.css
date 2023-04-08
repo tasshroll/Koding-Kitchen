@@ -1,6 +1,8 @@
 :root {
   --primary: #ccdad1;
   --secondary: #9caea9;
+  --green: #1ed10e96;
+  --dark-green:#0a520396;
   --tertiary: #788585;
   --light-blue: #4f74ed;
   --dark-blue: #040347;
@@ -39,7 +41,7 @@ h6 {
 }
 
 a {
-  font-size: 32px;
+  font-size: 30px;
   color: white;
   text-align: center;
 }
@@ -71,6 +73,7 @@ a {
   /* color: var(--dark-blue); */
   /* background-color: var(--dark); */
   padding: 2.5%;
+  font-size: 1.5rem;
   /* border-radius: calc(0.18rem - 1px) calc(0.18rem - 1px) 0 0; */
 }
 
@@ -101,6 +104,7 @@ a {
 
 
 .btn {
+  /* display: inline-block; */
   font-size: 1.3rem;
   text-decoration: none;
   padding: 6px 5px;
@@ -112,10 +116,37 @@ a {
   border: none;
   outline: none;
   /* background-color: var(--light-blue); */
-  background-color: #1ed10e96;
+  background-color: var(--green);
+  box-shadow: 3px 3px var(--dark-green);
+  transform: translate(-1px, -1px);
+}
+
+.new-search-btn {
+  /* display: inline-block; */
+  font-size: 1.3rem;
+  text-decoration: none;
+  padding: 6px 5px;
+  width: 50%;
+  display: block;
+  margin: 10px auto 0;
+  border-radius: var(--border-radius);
+  color: var(--primary);
+  border: none;
+  outline: none;
+  /* background-color: var(--light-blue); */
+  background-color: var(--green);
   box-shadow: 3px 3px var(--dark);
   transform: translate(-1px, -1px);
 }
+
+.margin-bottom-30 {
+margin-bottom: 30px;
+}
+
+.margin-bottom-5 {
+margin-bottom: 5px;
+}
+
 .recipe-div img {
   margin-left: 26%;
   } 
