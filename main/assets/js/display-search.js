@@ -134,7 +134,6 @@ async function searchApi(searchEl) {
     // Make API call with the current offset
     // var apiUrl = 'https://api.spoonacular.com/recipes/complexSearch?apiKey='${apiKey}'&query'${searchEl}'&number=10&offset='${offset};
     //     + apiKey + '&query=' + searchEl + '&number=10&offset=' + offset;
-
     var apiUrl = 'https://api.spoonacular.com/recipes/complexSearch' + '?apiKey='
         + apiKey + '&query=' + searchEl + '&number=10&offset=' + offset;
 
