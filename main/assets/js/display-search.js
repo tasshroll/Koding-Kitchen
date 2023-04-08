@@ -105,8 +105,8 @@ function printRecipeResults() {
     var recipeOutput = document.querySelector('#recipes');
     // Create a header element
     var header = document.createElement("h2");
-    header.textContent = "click on the link for more recipe details";
-    header.setAttribute ("class", "col-12")
+    header.textContent = "click on image for recipe details";
+    header.setAttribute("class", "col-12")
     recipeOutput.appendChild(header);
 
     for (var i = 0; i < recipeArr.length; i++) {
@@ -121,7 +121,7 @@ function printRecipeResults() {
         var title = recipeArr[i].title;
         var img = recipeArr[i].img;
         var url = recipeArr[i].url;
-        var recipeHtml = `<div class="col-lg-6 col-md-12 col-sm-12 recipe-div"><a href="${url}"><p class="margin-bottom-30">${title}</p><img src="${img}"></a></div>`;
+        var recipeHtml = `<div class="col-lg-6 col-md-12 col-sm-12 recipe-div"><a href="${url}"><p class="margin-bottom-5">${title}</p><img src="${img}"></a></div>`;
         recipeOutput.innerHTML += recipeHtml;
     }
 };
@@ -135,7 +135,7 @@ async function searchApi(searchEl) {
     // var apiUrl = 'https://api.spoonacular.com/recipes/complexSearch?apiKey='${apiKey}'&query'${searchEl}'&number=10&offset='${offset};
     //     + apiKey + '&query=' + searchEl + '&number=10&offset=' + offset;
 
-        var apiUrl = 'https://api.spoonacular.com/recipes/complexSearch' + '?apiKey='
+    var apiUrl = 'https://api.spoonacular.com/recipes/complexSearch' + '?apiKey='
         + apiKey + '&query=' + searchEl + '&number=10&offset=' + offset;
 
     console.log(apiUrl);
@@ -171,7 +171,7 @@ async function searchApi(searchEl) {
             console.log("Recipe Array is :", recipeArr);
 
             printRecipeResults();
-        
+
 
         } else {
             alert('Error: ' + response.statusText);
@@ -182,19 +182,47 @@ async function searchApi(searchEl) {
     }
 }; // END searchApi
 
-// Call API to retreive recipes
+
+
+// Call API to retreive more recipes
 function getMoreRecipes() {
     console.log("Button clicked, searching for more :", query);
+    // Offset is needed for API to page to the next set of recipes
     offset += 10;
     console.log("Offset is :", offset);
+    // Reset array length to zero - clears out array
     recipeArr.length = 0;
-    searchApi(query); 
+    // Get next 10 recipes
+    searchApi(query);
 }
-
 // Listen for click if user wants more recipes
+// Will attempt to display the next 10
 generateBtn.addEventListener("click", getMoreRecipes);
 
-// Parse query params input by user from homepage
+
+// Listens for "New Search" selection on the 2nd page
+// User input is passed to getParams
+var formSearchEl = document.getElementById('user-form');
+
+var formSubmitHandler = function (event) {
+    event.preventDefault();
+    var foodTypeEl = document.getElementById('new-search');
+    var searchEl = foodTypeEl.value.trim();
+    console.log("User entered ", searchEl);
+    if (!searchEl) {
+        console.error("You need to enter a food input value");
+        return;
+    }
+    var queryString = './search-results.html?q=' + searchEl;
+    // will redirect to this same scrirpt with new query parameter
+    location.assign(queryString);
+};
+formSearchEl.addEventListener('submit', formSubmitHandler);
+
+
+
+// Parse query params input by user from the homepage button
+// or the 2nd page Search Button
 getParams();
 
 
