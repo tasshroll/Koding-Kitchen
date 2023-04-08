@@ -39,12 +39,10 @@ h6 {
 }
 
 a {
-  font-size: 35px;
+  font-size: 32px;
   color: white;
   text-align: center;
 }
-
-
 
 .hero {
   padding: 3% 4%;
@@ -118,6 +116,9 @@ a {
   box-shadow: 3px 3px var(--dark);
   transform: translate(-1px, -1px);
 }
+.recipe-div img {
+  margin-left: 26%;
+  } 
 
 /* HEIGHT / WIDTH UTILS */
 .min-100-vh {
@@ -454,4 +455,6 @@ a {
   }
 
   /*Giphy code end*/
+
+
 }
