@@ -223,30 +223,32 @@ formSearchEl.addEventListener('submit', formSubmitHandler);
 
 
 
-
 var getSavedRecipes = document.querySelector('#nav');
-// Add event listener to #nav HTML to get favorite recipes from local storage
+var localStorageTitles = document.querySelector('#favorite-recipe-titles');
+
+// Add event listener to #nav HTML "Saved Recipes" to retreive favorited recipes from local storage
 getSavedRecipes.addEventListener('click', function (event) {
     // Recipes are stored with the key recipe-Title of Recipe
+    console.log("Saved Recipes clicked");
+    // Clear the recipe titles div before adding new ones
+    localStorageTitles.innerHTML = "Your Saved Recipes are: ";
 
-    // Loop over the keys in local storage that begin with "Recipe-"
+    // Find keys in local storage that begin with "Recipe-"
     for (var i = 0; i < localStorage.length; i++) {
         var key = localStorage.key(i);
 
         if (key.startsWith('Recipe-')) {
             // Retrieve the saved recipe from local storage
             var savedRecipe = localStorage.getItem(key);
-
-            // Parse the JSON string value to a JavaScript object
             savedRecipe = JSON.parse(savedRecipe);
 
-            // Log the saved recipe
-            console.log(savedRecipe);
+            // Create a new p element with the recipe title and append it to the recipe titles div
+            var recipeTitle = savedRecipe.title;
+            var recipeTitleHtml = `<p>${recipeTitle}</p>`;
+            localStorageTitles.innerHTML += recipeTitleHtml;
         }
     }
-
 });
-
 
 
 var recipeOutput = document.querySelector('#recipes');
@@ -256,7 +258,8 @@ recipeOutput.addEventListener('click', function (event) {
     console.log("checkbox clicked")
     // Check if the clicked element was a checkbox
     if (event.target.type === 'checkbox' && event.target.name === 'recipe-checkbox') {
-        // Get the index of the clicked checkbox from the id attribute
+        // Get the # of the clicked checkbox
+        // Each recipe is numbered recipe0, recipe1, etc
         var index = parseInt(event.target.id.replace('recipe', ''));
         console.log('Checkbox ' + index + ' was clicked!');
 
@@ -264,6 +267,7 @@ recipeOutput.addEventListener('click', function (event) {
         localStorage.setItem('Recipe-' + recipeArr[index].title, JSON.stringify(recipeArr[index]));
         numRecipesSaved++;
     }
+    console.log("Recipes Saved is: ", numRecipesSaved);
 });
 
 // Parse query params input by user from the homepage button
