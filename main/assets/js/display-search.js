@@ -83,6 +83,8 @@ var newSearchBtn = document.getElementById("")
 // array to hold recipes
 recipeArr = [];
 
+var numRecipesSaved = 0;
+
 // User's search input
 var query;
 
@@ -102,7 +104,6 @@ function getParams() {
 // Render the recipes to the page
 function printRecipeResults() {
 
-    var recipeOutput = document.querySelector('#recipes');
     // Create a header element
     var header = document.createElement("h2");
     header.textContent = "click on image for recipe details";
@@ -121,7 +122,9 @@ function printRecipeResults() {
         var title = recipeArr[i].title;
         var img = recipeArr[i].img;
         var url = recipeArr[i].url;
-        var recipeHtml = `<div class="col-lg-6 col-md-12 col-sm-12 recipe-div"><a href="${url}"><p class="margin-bottom-5">${title}</p><img src="${img}"></a></div>`;
+        var recipeHtml = `<div class="col-lg-6 col-md-12 col-sm-12 recipe-div"><a href="${url}"><input type="checkbox" id="recipe${i}" name="recipe-checkbox"><p class="margin-bottom-5">${title}</p><img src="${img}"></a></div>`;
+
+        // var recipeHtml = `<div class="col-lg-6 col-md-12 col-sm-12 recipe-div"><a href="${url}"><p class="margin-bottom-5">${title}</p><img src="${img}"></a></div>`;
         recipeOutput.innerHTML += recipeHtml;
     }
 };
@@ -219,6 +222,49 @@ var formSubmitHandler = function (event) {
 formSearchEl.addEventListener('submit', formSubmitHandler);
 
 
+
+
+var getSavedRecipes = document.querySelector('#nav');
+// Add event listener to #nav HTML to get favorite recipes from local storage
+getSavedRecipes.addEventListener('click', function (event) {
+    // Recipes are stored with the key recipe-Title of Recipe
+
+    // Loop over the keys in local storage that begin with "Recipe-"
+    for (var i = 0; i < localStorage.length; i++) {
+        var key = localStorage.key(i);
+
+        if (key.startsWith('Recipe-')) {
+            // Retrieve the saved recipe from local storage
+            var savedRecipe = localStorage.getItem(key);
+
+            // Parse the JSON string value to a JavaScript object
+            savedRecipe = JSON.parse(savedRecipe);
+
+            // Log the saved recipe
+            console.log(savedRecipe);
+        }
+    }
+
+});
+
+
+
+var recipeOutput = document.querySelector('#recipes');
+
+// Add event listener to #recipes HTML to see which were favorited
+recipeOutput.addEventListener('click', function (event) {
+    console.log("checkbox clicked")
+    // Check if the clicked element was a checkbox
+    if (event.target.type === 'checkbox' && event.target.name === 'recipe-checkbox') {
+        // Get the index of the clicked checkbox from the id attribute
+        var index = parseInt(event.target.id.replace('recipe', ''));
+        console.log('Checkbox ' + index + ' was clicked!');
+
+        // Save the recipe to local storage, recipeArr[index];
+        localStorage.setItem('Recipe-' + recipeArr[index].title, JSON.stringify(recipeArr[index]));
+        numRecipesSaved++;
+    }
+});
 
 // Parse query params input by user from the homepage button
 // or the 2nd page Search Button
