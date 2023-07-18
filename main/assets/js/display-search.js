@@ -15,13 +15,10 @@ var apiKey = "0d5211b3d5ad40da820938ae55017af1"; // Tifni
 //var apiKey = "e8f4fbaee191412ebf5f8768cfb7e9fa" // Bill
 //var apiKey = "67c16e203ad04f6295ec9d77abb5cb68" // David
 
-// api KEYS for Giphy, limit?
+// api KEYS for Giphy
 //var giphyKey = "IajHaZagRh0q9o7Rd7K7kXBo8gcIFogM"; // BreeAnn
 var giphyKey = "KnVF7VtjV4lwzxMznTgH2xA4rbz0PnBS" // Bill
 
-
-
-//Giphy code
 // Function to generate a random number within a range
 function getRandomNumber(min, max) {
     return Math.floor(Math.random() * (max - min + 1)) + min;
@@ -113,16 +110,18 @@ function printRecipeResults() {
     for (var i = 0; i < recipeArr.length; i++) {
         // HTML for each recipe title and image. A Click
         // on title OR image will redirect to href for recipe
-        //
-        // <div class="col-lg-6 col-md-12 col-sm-12 recipe-div"
-        //    <a href = "url"><p>TITLE</p>
-        //      <img src="file.jpg">
-        //    </a>
-        // </div>
         var title = recipeArr[i].title;
         var img = recipeArr[i].img;
         var url = recipeArr[i].url;
-        var recipeHtml = `<div class="col-lg-6 col-md-12 col-sm-12 recipe-div"><a href="${url}"><input type="checkbox" id="recipe${i}" name="recipe-checkbox"><p class="margin-bottom-5">${title}</p><img src="${img}"></a></div>`;
+        var recipeHtml = 
+        `<div class="col-lg-6 col-md-12 col-sm-12 recipe-div">
+             <a href="${url}">
+               <input type="checkbox" 
+               id="recipe${i}" name="recipe-checkbox">
+               <p class="margin-bottom-5">${title}</p>
+               <img src="${img}">
+             </a>
+        </div>`;
 
         // var recipeHtml = `<div class="col-lg-6 col-md-12 col-sm-12 recipe-div"><a href="${url}"><p class="margin-bottom-5">${title}</p><img src="${img}"></a></div>`;
         recipeOutput.innerHTML += recipeHtml;
@@ -161,9 +160,7 @@ async function searchApi(searchEl) {
                     id: recipeId,
                     url: ''
                 }
-                console.log("Recipe title is : ", recipeTitle);
-                //recipeObj.url = await getRecipeApi(recipeId, recipeUrl);
-                //debugger;
+
                 recipeObj.url = `https://spoonacular.com/${recipeTitle
                     .toLowerCase()
                     .replace(" ", "-")}-${recipeId}`;
@@ -174,7 +171,6 @@ async function searchApi(searchEl) {
 
             printRecipeResults();
 
-
         } else {
             alert('Error: ' + response.statusText);
         }
@@ -184,14 +180,11 @@ async function searchApi(searchEl) {
     }
 }; // END searchApi
 
-
-
 // Call API to retreive more recipes
 function getMoreRecipes() {
     console.log("Button clicked, searching for more :", query);
     // Offset is needed for API to page to the next set of recipes
     offset += 10;
-    console.log("Offset is :", offset);
     // Reset array length to zero - clears out array
     recipeArr.length = 0;
     // Get next 10 recipes
@@ -201,7 +194,6 @@ function getMoreRecipes() {
 // Will attempt to display the next 10
 generateBtn.addEventListener("click", getMoreRecipes);
 
-
 // Listens for "New Search" selection on the 2nd page
 // User input is passed to getParams
 var formSearchEl = document.getElementById('user-form');
@@ -209,8 +201,8 @@ var formSearchEl = document.getElementById('user-form');
 var formSubmitHandler = function (event) {
     event.preventDefault();
     var foodTypeEl = document.getElementById('new-search');
+    // searchEl is user input
     var searchEl = foodTypeEl.value.trim();
-    console.log("User entered ", searchEl);
     if (!searchEl) {
         console.error("You need to enter a food input value");
         return;
@@ -220,7 +212,6 @@ var formSubmitHandler = function (event) {
     location.assign(queryString);
 };
 formSearchEl.addEventListener('submit', formSubmitHandler);
-
 
 
 var getSavedRecipes = document.querySelector('#nav');
@@ -273,6 +264,3 @@ recipeOutput.addEventListener('click', function (event) {
 // Parse query params input by user from the homepage button
 // or the 2nd page Search Button
 getParams();
-
-
-

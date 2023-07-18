@@ -4,8 +4,9 @@ var formSubmitHandler = function (event) {
     event.preventDefault();
 
     var foodTypeEl = document.getElementById('food-type');
+
+    // searchEl contains the user ingredients or food cuisine to search on
     var searchEl = foodTypeEl.value.trim();
-    console.log("User entered ", searchEl);
     if (!searchEl) {
         console.error("You need to enter a food input value");
         return;
@@ -15,4 +16,5 @@ var formSubmitHandler = function (event) {
     location.assign(queryString);
 };
 
+// Listen for when user submits their entry
 formSearchEl.addEventListener('submit', formSubmitHandler);
